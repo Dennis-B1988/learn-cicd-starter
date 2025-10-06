@@ -24,4 +24,5 @@ func (cfg *apiConfig) middlewareAuth(handler authedHandler) http.HandlerFunc {
 		}
 
 		handler(w, r, user)
-	}}
+	}
+}
