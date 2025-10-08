@@ -31,7 +31,7 @@ jobs:
         run: scripts/buildprod.sh
 
   job_id:
-    name: Build and Push Docker Image
+    needs: deploy
     runs-on: ubuntu-latest
 
     steps:
