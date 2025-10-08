@@ -24,6 +24,10 @@ jobs:
       - name: Install goose
         run: go install github.com/pressly/goose/v3/cmd/goose@latest
 
+      - uses: geekyeggo/delete-artifact@v2
+        with:
+          name: notely-binary
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
