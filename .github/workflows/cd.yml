@@ -24,9 +24,8 @@ jobs:
       - name: Install goose
         run: go install github.com/pressly/goose/v3/cmd/goose@latest
 
-      - uses: geekyeggo/delete-artifact@v2
-        with:
-          name: notely-binary
+      - name: Build app
+        run: scripts/buildprod.sh
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
@@ -58,9 +57,6 @@ jobs:
 
       - name: Run migrations
         run: scripts/migrateup.sh
-
-      - name: Build app
-        run: scripts/buildprod.sh
 
       - name: Deploy to Cloud Run
         run: gcloud run deploy notely --image us-central1-docker.pkg.dev/notely-474518/notely-ar-repo/notely:v1 --region us-central1 --allow-unauthenticated --project notely-474518 --max-instances=4
