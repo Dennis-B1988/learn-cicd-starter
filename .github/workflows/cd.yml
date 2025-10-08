@@ -41,13 +41,13 @@ jobs:
       - name: 'Use gcloud CLI'
         run: 'gcloud info'
 
-      - name: Download notely
-        uses: actions/download-artifact@v4
-        with:
-          name: notely-binary
+      # - name: Download notely
+      #   uses: actions/download-artifact@v4
+      #   with:
+      #     name: notely-binary
 
-      - name: List files
-        run: ls -la
+      # - name: List files
+      #   run: ls -la
 
       - name: Build and Push Docker Image
         run: gcloud builds submit --tag us-central1-docker.pkg.dev/notely-474518/notely-ar-repo/notely:v1 .
